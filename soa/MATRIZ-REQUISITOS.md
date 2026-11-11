@@ -2,7 +2,7 @@
 
 Referências: página 27 do [PDF oficial](<../GS CitizenTech - 3ES Fev - FIAP 2026 -  (1).pdf>) e autoavaliação do [HTML do professor](<../Global Solution 2026.2_Arquitetura Orientada a Serviços e Web Services 1.html>). Os critérios e pesos principais são oficiais; os subitens são a leitura da rubrica oferecida pelo guia, sujeita à avaliação do professor.
 
-Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados está em [REVISAO-SOA.md](REVISAO-SOA.md). Esta matriz registra implementação e verificação local, sem atribuir uma nota ao grupo. O link do GitHub e o envio no Teams ainda estão pendentes.
+Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados está em [REVISAO-SOA.md](REVISAO-SOA.md). Esta matriz registra implementação e verificação local, sem atribuir uma nota ao grupo. Código e evidências publicados no [GitHub](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026); envio acadêmico no Teams ou Portal do aluno pendente.
 
 ## Estruturação do domínio - 3,0
 
@@ -58,8 +58,9 @@ Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados es
 - Uso de IA registrado em [prompts.md](../prompts.md), conforme a página 21 do PDF.
 - Evidências reais descritas em [evidencias/README.md](evidencias/README.md).
 - Backend independente de C#, Mobile, ML e Wokwi para execução e teste.
-- Pendentes: validação dos locais e janela recente com moradores, publicação no GitHub, link da ficha e envio por um integrante na tarefa da disciplina.
+- Publicação no GitHub e preenchimento do link da ficha concluídos.
+- Pendentes: validação dos locais e janela recente com moradores e envio por um integrante na tarefa da disciplina.
 
 A implementação local cobre os itens técnicos acima. A validação territorial não foi simulada nem apresentada como concluída. A pontuação final e eventuais orientações adicionais da turma dependem do professor.
 
-**Limite de entrega:** existem arquivos de migração e lockfile preparados para versionamento, mas esta pasta ainda não é um repositório Git. O histórico de commits, o link GitHub e a acessibilidade ao professor só poderão ser verificados após a publicação.
+**Versionamento e acesso:** migrações, lockfile, código e evidências estão versionados e publicados no repositório público. A publicação foi conferida após o push. O envio do link na tarefa da disciplina permanece pendente.

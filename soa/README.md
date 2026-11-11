@@ -241,4 +241,4 @@ Integrantes:
 
 O registro de IA está em [prompts.md](../prompts.md). O [plano](PLANO.md) explica o recorte e a [proposta comum](../agua-na-rua.md) mantém o contexto das outras disciplinas.
 
-Repositório configurado: [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026). O link da ficha foi preenchido; a publicação está em preparação. A entrega de SOA é esse link, enviado por um integrante na tarefa da disciplina até **19/11/2026, às 23h55**. O envio acadêmico permanece pendente.
+Código e evidências publicados no repositório público [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026). O link da ficha foi preenchido. A entrega de SOA é esse link, enviado por um integrante na tarefa da disciplina até **19/11/2026, às 23h55**. O envio acadêmico permanece pendente.

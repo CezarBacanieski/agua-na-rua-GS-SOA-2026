@@ -150,7 +150,7 @@ O primeiro fluxo completo será: cadastrar ponto, registrar observação e consu
 
 ## 9. Checklist baseado na autoavaliação do HTML
 
-Os itens técnicos abaixo foram implementados e verificados localmente; a matriz de requisitos aponta os arquivos e evidências. Publicação em preparação; envio acadêmico pendente.
+Os itens técnicos abaixo foram implementados e verificados localmente; a matriz de requisitos aponta os arquivos e evidências. Código publicado no GitHub; envio acadêmico pendente.
 
 ### Domínio - 3,0
 
@@ -205,7 +205,7 @@ Os testes automatizados de SOA não substituem os Test Cases do Azure. Os compor
 - **Atualização:** combinar a janela de informação recente; 30 minutos é apenas uma proposta inicial.
 - **Coordenação:** confirmar quem fornece os pontos e quem consumirá o contrato Node, para evitar que o app dependa de detalhes do backend de C#.
 - **Testing, na próxima etapa:** obter o modelo usado em aula, o projeto Azure e a identificação do professor. Ainda não houve criação ou alteração em conta externa.
-- **GitHub:** repositório local e remoto configurados, com link preenchido na ficha; aguardando confirmação do primeiro push.
+- **GitHub (concluído):** código, migrações, testes e evidências publicados na branch `main` do repositório público [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026), com o link preenchido na ficha.
 - **Presença:** a página 23 diz “Sem chamadas durante a GS”; a página 24 diz “com chamada” a partir de 05/11. Confirmar com a coordenação/professor. Isso não impede desenvolver SOA.
 
 O prazo de entrega é consistente: **19/11/2026, às 23h55**. A semana de orientação indicada é de 16 a 19/11.

@@ -2,7 +2,7 @@
 
 Espaço de trabalho da CitizenTech Água na Rua, da FIAP. O foco desta pasta é a entrega de **SOA e Web Services** e, depois, de **Testing, Compliance & Quality Assurance**.
 
-**Status em 11/11/2026:** backend de SOA implementado e verificado localmente com PostgreSQL, migrações, Swagger e 95 testes aprovados. Repositório local configurado para publicação no GitHub. O envio acadêmico ainda não foi realizado.
+**Status em 11/11/2026:** backend de SOA implementado e verificado localmente com PostgreSQL, migrações, Swagger e 95 testes aprovados. Código e evidências publicados no GitHub. O envio acadêmico no Teams ou Portal do aluno ainda não foi realizado.
 
 **Repositório:** [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026).
 

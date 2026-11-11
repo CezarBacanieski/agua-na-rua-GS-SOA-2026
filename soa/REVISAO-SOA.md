@@ -2,9 +2,11 @@
 
 Data: 11/11/2026. Revisão do código e da entrega local, após a implementação inicial.
 
+**Atualização de publicação em 11/11/2026:** código e evidências publicados em [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026). A pendência de versionamento foi resolvida após a revisão técnica; o envio acadêmico e a fundamentação territorial permanecem pendentes.
+
 ## Parecer
 
-A implementação, após as correções desta revisão, cobre o conteúdo técnico dos cinco critérios fornecidos para SOA. A entrega acadêmica ainda tem pendências: esta pasta não é um repositório Git, o link GitHub está em branco e não houve envio ao professor. O vínculo com um problema territorial real também precisa ser sustentado por evidências do grupo.
+A implementação, após as correções desta revisão, cobre o conteúdo técnico dos cinco critérios fornecidos para SOA. A publicação no GitHub e o preenchimento do link foram concluídos após a revisão técnica. O envio do link ao professor permanece pendente. O vínculo com um problema territorial real também precisa ser sustentado por evidências do grupo.
 
 Não se atribui nota nesta revisão. Existência de código, quantidade de testes e cobertura não garantem a pontuação do professor. A própria página HTML informa que seus subitens são uma leitura da rubrica.
 
@@ -66,7 +68,7 @@ A evidência anterior mostrava um relatório de resultados estruturados, com o l
 |---|---:|---|---|
 | Estruturação do domínio | 3,0 | Atendido no código | Entidades com regras, camadas, DTOs, relação entre ponto e observação e testes sem HTTP/banco |
 | Conexão com banco | 3,0 | Atendido e verificado em PostgreSQL | CRUD completo, chave estrangeira, parâmetros de ambiente, consultas e persistência entre processos |
-| Migrações | 1,5 | Implementação atendida; versionamento Git ainda pendente | Criação, evolução, seed, histórico, rollback, instalação limpa e compatibilidade ORM/banco |
+| Migrações | 1,5 | Implementação, versionamento e publicação atendidos | Criação, evolução, seed, histórico, rollback, instalação limpa e compatibilidade ORM/banco |
 | Documentação automática | 1,5 | Atendido localmente | Dez operações em Swagger/OpenAPI, resumos, tags, exemplos, erros, parâmetros funcionais e prints |
 | Testes automatizados | 1,0 | Atendido e reexecutado | Comando único, testes de domínio e HTTP, status/corpo conferidos e evidências atualizadas |
 
@@ -84,7 +86,7 @@ O CRUD de uma entidade é suficiente segundo o guia; Pontos possui esse CRUD. Ob
 - Contrato: 46 referências internas de schema verificadas e todos os parâmetros de paginação documentados como inteiros.
 - Regressão de entradas nulas: duas requisições reais agora recusadas com 400.
 - README e matriz: links locais e existência dos arquivos conferidos; ficha comum preservada no início do README de SOA.
-- Credencial de desenvolvimento: busca exata sem exibir a senha, verificando que ela não foi incluída nos arquivos de entrega. `.env` e diretórios gerados estão previstos no `.gitignore`. Como não existe Git nesta pasta, não há histórico de commits a auditar.
+- Credencial de desenvolvimento: busca exata sem exibir a senha, verificando que ela não foi incluída nos arquivos de entrega. `.env` e diretórios gerados estão previstos no `.gitignore`. Na auditoria anterior à publicação ainda não havia histórico Git; os arquivos versionados também foram conferidos na etapa de publicação para impedir inclusão da credencial local.
 
 | Suíte | Casos | Resultado |
 |---|---:|---|
@@ -99,11 +101,11 @@ Cobertura de linhas de domínio/aplicação: **98,05%**; funções: **100%**. Es
 
 ## Pendências que ainda impedem tratar a entrega como concluída
 
-### P1 - Repositório e envio
+### P1 - Repositório publicado; envio acadêmico pendente
 
-O PDF exige **link do GitHub** com código, README, documentação e evidências. `git status` nesta pasta confirmou que ela ainda não é um repositório Git. O campo da ficha continua como `[INSERIR LINK]`.
+O PDF exige **link do GitHub** com código, README, documentação e evidências. A revisão identificou originalmente a ausência de Git e do link preenchido. Essa parte foi resolvida com o versionamento e a publicação autorizados pelo usuário em 11/11/2026.
 
-A equipe ainda precisa versionar os arquivos, publicar no GitHub, preencher o link da ficha, conferir acesso ao professor e enviar o link na tarefa de SOA por um integrante, até **19/11/2026, às 23h55**. Nenhum desses passos foi apresentado como concluído.
+Versionamento, publicação, preenchimento do link e acesso público foram conferidos. A equipe ainda precisa enviar o link na tarefa de SOA por um integrante, até **19/11/2026, às 23h55**. O envio acadêmico não foi realizado.
 
 A publicação precisa preservar a estrutura de arquivos referenciada pelos READMEs, incluindo `soa/`, o registro de prompts e os arquivos usados como fontes; se a estrutura publicada mudar, os links relativos precisam ser ajustados e conferidos.
 
@@ -122,8 +124,8 @@ Cada integrante também precisa compreender e explicar o projeto, como pede a p�
 - Dados de demonstração explicitamente fictícios; não há comprovação de condição atual das ruas nem de redução de danos.
 - Rotas de escrita abertas para a demonstração acadêmica local; autenticação e moderação não fazem parte do recorte implementado nem aparecem como requisitos de SOA no material fornecido.
 - A auditoria de produção registrada reportou zero vulnerabilidades. A auditoria completa tem seis avisos baixos na cadeia de ferramentas de desenvolvimento, documentados no README. Os relatórios são datados e não constituem garantia futura.
-- Não houve publicação, convite a professores, alteração de conta externa ou envio de trabalho nesta revisão.
+- A publicação no GitHub foi autorizada e realizada após a revisão técnica. Não houve convite a professores nem envio de trabalho no Teams ou Portal.
 
 ## Conclusão da revisão
 
-Os problemas reproduzidos foram corrigidos e receberam testes. O backend está tecnicamente preparado para a entrega de SOA segundo os materiais disponíveis. O encerramento da entrega depende de GitHub, envio e fundamentação territorial pelo grupo; não é correto tratar esses passos como concluídos nem prometer nota máxima.
+Os problemas reproduzidos foram corrigidos e receberam testes. O backend está tecnicamente preparado para a entrega de SOA segundo os materiais disponíveis. O código está publicado no GitHub. O encerramento da entrega depende do envio acadêmico e da fundamentação territorial pelo grupo; não é correto tratar esses passos como concluídos nem prometer nota máxima.
