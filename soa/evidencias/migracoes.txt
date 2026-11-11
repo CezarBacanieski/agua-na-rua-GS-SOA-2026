@@ -1,0 +1,11 @@
+
+> agua-na-rua-soa@1.0.0 migration:show
+> npm run build && typeorm migration:show -d dist/infraestrutura/data-source.js
+
+
+> agua-na-rua-soa@1.0.0 build
+> tsc -p tsconfig.json
+
+[X] 1 CriaPontosEObservacoes1794394800000
+[X] 2 AdicionaReferenciaEIndices1794394801000
+[X] 3 CarregaDemonstracao1794394802000

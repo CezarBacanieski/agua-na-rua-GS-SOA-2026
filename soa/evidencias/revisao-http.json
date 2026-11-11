@@ -1,0 +1,34 @@
+[
+  {
+    "metodo": "POST",
+    "caminho": "/pontos",
+    "status": 400,
+    "corpo": {
+      "type": "about:blank",
+      "title": "Entrada inválida",
+      "status": 400,
+      "detail": "Verifique os campos informados.",
+      "instance": "/pontos",
+      "code": "ENTRADA_INVALIDA",
+      "errors": [
+        "nome should not contain a \u0000 string"
+      ]
+    }
+  },
+  {
+    "metodo": "GET",
+    "caminho": "/pontos?bairro=%00",
+    "status": 400,
+    "corpo": {
+      "type": "about:blank",
+      "title": "Entrada inválida",
+      "status": 400,
+      "detail": "Verifique os campos informados.",
+      "instance": "/pontos",
+      "code": "ENTRADA_INVALIDA",
+      "errors": [
+        "bairro should not contain a \u0000 string"
+      ]
+    }
+  }
+]

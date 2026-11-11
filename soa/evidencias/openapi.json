@@ -1,0 +1,1381 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/pontos": {
+      "post": {
+        "description": "Coordenadas e natureza simulada identificam o ponto e serão imutáveis. Não use dados pessoais.",
+        "operationId": "cadastrarPonto",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CadastroPontoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "headers": {
+              "Location": {
+                "description": "URL do ponto criado",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PontoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Regra de negócio violada",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Regra de negócio violada",
+                  "status": 422,
+                  "detail": "Regra de negócio violada",
+                  "instance": "/pontos",
+                  "code": "CADASTRO_INVALIDO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cadastra um ponto acompanhado",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      },
+      "get": {
+        "operationId": "listarPontos",
+        "parameters": [
+          {
+            "name": "pagina",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 1000000,
+              "default": 1,
+              "example": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "tamanho",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "example": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "bairro",
+            "required": false,
+            "in": "query",
+            "description": "Igualdade sem diferenciar maiúsculas e minúsculas.",
+            "schema": {
+              "example": "Jardim Peri",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginaPontosDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Lista pontos com filtro por bairro e paginação",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      }
+    },
+    "/pontos/{id}": {
+      "get": {
+        "operationId": "consultarPonto",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PontoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consulta um ponto pelo identificador",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      },
+      "put": {
+        "description": "Envie todos os campos. Coordenadas e dadosSimulados devem permanecer iguais ao cadastro original para preservar a identidade do local.",
+        "operationId": "atualizarPonto",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CadastroPontoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PontoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Regra de negócio violada",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Regra de negócio violada",
+                  "status": 422,
+                  "detail": "Regra de negócio violada",
+                  "instance": "/pontos",
+                  "code": "CADASTRO_INVALIDO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Atualiza o cadastro de um ponto",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      },
+      "delete": {
+        "description": "Pontos com histórico são preservados e retornam 409.",
+        "operationId": "excluirPonto",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ponto excluído; resposta sem corpo."
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflito com o histórico",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Conflito com o histórico",
+                  "status": 409,
+                  "detail": "O ponto possui observações e seu histórico deve ser preservado.",
+                  "instance": "/pontos",
+                  "code": "PONTO_COM_HISTORICO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Exclui um ponto sem observações",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      }
+    },
+    "/pontos/{id}/resumo": {
+      "get": {
+        "description": "Distingue RECENTE, ANTIGA e SEM_INFORMACAO. Ausência de dados não indica rua livre. A janela configurável é uma hipótese do protótipo.",
+        "operationId": "consultarResumo",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResumoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consulta a última observação e sua atualização",
+        "tags": [
+          "Pontos monitorados"
+        ]
+      }
+    },
+    "/pontos/{pontoId}/observacoes": {
+      "post": {
+        "description": "O servidor atribui registradoEm e origem RELATO_MANUAL. Horários futuros são recusados. Relatos fictícios devem ter dadosSimulados=true.",
+        "operationId": "registrarObservacao",
+        "parameters": [
+          {
+            "name": "pontoId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NovaObservacaoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "headers": {
+              "Location": {
+                "description": "URL da observação criada",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservacaoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Regra de negócio violada",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Regra de negócio violada",
+                  "status": 422,
+                  "detail": "Regra de negócio violada",
+                  "instance": "/pontos",
+                  "code": "CADASTRO_INVALIDO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Registra uma observação manual",
+        "tags": [
+          "Observações"
+        ]
+      },
+      "get": {
+        "description": "Ordena por observadoEm, registradoEm e id em ordem decrescente. Os limites do período são inclusivos. Ponto existente sem relatos retorna lista vazia.",
+        "operationId": "listarObservacoes",
+        "parameters": [
+          {
+            "name": "pontoId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagina",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 1000000,
+              "default": 1,
+              "example": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "tamanho",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "example": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "de",
+            "required": false,
+            "in": "query",
+            "description": "Início inclusivo; exige fuso horário.",
+            "schema": {
+              "format": "date-time",
+              "example": "2026-11-01T00:00:00Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "ate",
+            "required": false,
+            "in": "query",
+            "description": "Fim inclusivo; exige fuso horário.",
+            "schema": {
+              "format": "date-time",
+              "example": "2026-11-11T23:59:59Z",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginaObservacoesDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Regra de negócio violada",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Regra de negócio violada",
+                  "status": 422,
+                  "detail": "Regra de negócio violada",
+                  "instance": "/pontos",
+                  "code": "CADASTRO_INVALIDO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consulta histórico por período e paginação",
+        "tags": [
+          "Observações"
+        ]
+      }
+    },
+    "/pontos/{pontoId}/observacoes/{observacaoId}": {
+      "get": {
+        "operationId": "consultarObservacao",
+        "parameters": [
+          {
+            "name": "pontoId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "11111111-1111-4111-8111-111111111111",
+              "type": "string"
+            }
+          },
+          {
+            "name": "observacaoId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "example": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservacaoSaidaDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Entrada inválida",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Entrada inválida",
+                  "status": 400,
+                  "detail": "Entrada inválida",
+                  "instance": "/pontos",
+                  "code": "ENTRADA_INVALIDA"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso não encontrado",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Recurso não encontrado",
+                  "status": 404,
+                  "detail": "Recurso não encontrado",
+                  "instance": "/pontos",
+                  "code": "NAO_ENCONTRADO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Erro interno",
+                  "status": 500,
+                  "detail": "Não foi possível concluir a solicitação.",
+                  "instance": "/pontos",
+                  "code": "ERRO_INTERNO"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consulta uma observação do ponto informado",
+        "tags": [
+          "Observações"
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "consultarSaude",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaudeDto"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Serviço indisponível",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemaDto"
+                },
+                "example": {
+                  "type": "about:blank",
+                  "title": "Serviço indisponível",
+                  "status": 503,
+                  "detail": "Serviço indisponível",
+                  "instance": "/pontos",
+                  "code": "HTTP_503"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Verifica disponibilidade da API e do banco",
+        "tags": [
+          "Operação"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Água na Rua - API SOA",
+    "description": "CitizenTech para consultar pontos acompanhados e registrar observações manuais. Dados de demonstração são identificados como simulados. Não fornece previsão de enchentes nem garantia de passagem segura.",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "ProblemaDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "about:blank"
+          },
+          "title": {
+            "type": "string",
+            "example": "Entrada inválida"
+          },
+          "status": {
+            "type": "number",
+            "example": 400
+          },
+          "detail": {
+            "type": "string",
+            "example": "Verifique os campos informados."
+          },
+          "instance": {
+            "type": "string",
+            "example": "/pontos"
+          },
+          "code": {
+            "type": "string",
+            "example": "ENTRADA_INVALIDA",
+            "description": "Código estável da falha; respostas 422 usam o código da regra violada."
+          },
+          "errors": {
+            "example": [
+              "nome must be a string"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "instance",
+          "code"
+        ]
+      },
+      "CadastroPontoDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Ponto de demonstração D",
+            "maxLength": 100
+          },
+          "cidade": {
+            "type": "string",
+            "example": "São Paulo",
+            "maxLength": 80
+          },
+          "bairro": {
+            "type": "string",
+            "example": "Jardim Peri",
+            "maxLength": 80
+          },
+          "referenciaLocal": {
+            "type": "string",
+            "example": "Referência fictícia para demonstração",
+            "maxLength": 160
+          },
+          "latitude": {
+            "type": "number",
+            "example": -23.463,
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "example": -46.663,
+            "minimum": -180,
+            "maximum": 180
+          },
+          "dadosSimulados": {
+            "type": "boolean",
+            "example": true,
+            "description": "Obrigatório identificar dados de demonstração."
+          }
+        },
+        "required": [
+          "nome",
+          "cidade",
+          "bairro",
+          "referenciaLocal",
+          "latitude",
+          "longitude",
+          "dadosSimulados"
+        ]
+      },
+      "PontoSaidaDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "Ponto de demonstração D",
+            "maxLength": 100
+          },
+          "cidade": {
+            "type": "string",
+            "example": "São Paulo",
+            "maxLength": 80
+          },
+          "bairro": {
+            "type": "string",
+            "example": "Jardim Peri",
+            "maxLength": 80
+          },
+          "referenciaLocal": {
+            "type": "string",
+            "example": "Referência fictícia para demonstração",
+            "maxLength": 160
+          },
+          "latitude": {
+            "type": "number",
+            "example": -23.463,
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "example": -46.663,
+            "minimum": -180,
+            "maximum": 180
+          },
+          "dadosSimulados": {
+            "type": "boolean",
+            "example": true,
+            "description": "Obrigatório identificar dados de demonstração."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-01T12:00:00.000Z"
+          }
+        },
+        "required": [
+          "nome",
+          "cidade",
+          "bairro",
+          "referenciaLocal",
+          "latitude",
+          "longitude",
+          "dadosSimulados",
+          "id",
+          "criadoEm"
+        ]
+      },
+      "PaginaPontosDto": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 3
+          },
+          "pagina": {
+            "type": "number",
+            "example": 1
+          },
+          "tamanho": {
+            "type": "number",
+            "example": 20
+          },
+          "totalPaginas": {
+            "type": "number",
+            "example": 1
+          },
+          "itens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PontoSaidaDto"
+            }
+          }
+        },
+        "required": [
+          "total",
+          "pagina",
+          "tamanho",
+          "totalPaginas",
+          "itens"
+        ]
+      },
+      "ObservacaoSaidaDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1"
+          },
+          "pontoId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          "condicaoRelatada": {
+            "type": "string",
+            "enum": [
+              "SEM_AGUA_APARENTE",
+              "AGUA_ACUMULADA",
+              "ALAGAMENTO_RELATADO"
+            ],
+            "example": "AGUA_ACUMULADA"
+          },
+          "observadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-01T12:00:00.000Z"
+          },
+          "registradoEm": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-01T12:01:00.000Z"
+          },
+          "origem": {
+            "type": "string",
+            "enum": [
+              "RELATO_MANUAL"
+            ],
+            "example": "RELATO_MANUAL",
+            "description": "Atribuída pelo servidor; não comprova verificação do relato."
+          },
+          "dadosSimulados": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        "required": [
+          "id",
+          "pontoId",
+          "condicaoRelatada",
+          "observadoEm",
+          "registradoEm",
+          "origem",
+          "dadosSimulados"
+        ]
+      },
+      "ResumoSaidaDto": {
+        "type": "object",
+        "properties": {
+          "pontoId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "11111111-1111-4111-8111-111111111111"
+          },
+          "atualizacao": {
+            "type": "string",
+            "enum": [
+              "RECENTE",
+              "ANTIGA",
+              "SEM_INFORMACAO"
+            ],
+            "example": "SEM_INFORMACAO"
+          },
+          "ultimaObservacao": {
+            "nullable": true,
+            "description": "null quando o ponto não tem observações.",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ObservacaoSaidaDto"
+              }
+            ]
+          },
+          "consultadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-11T12:00:00.000Z"
+          },
+          "janelaRecenteMinutos": {
+            "type": "number",
+            "example": 30,
+            "description": "Parâmetro de demonstração configurável; sem validação operacional."
+          },
+          "aviso": {
+            "type": "string",
+            "example": "Relatos não comprovam segurança para passagem. Ausência de informação não indica rua livre."
+          }
+        },
+        "required": [
+          "pontoId",
+          "atualizacao",
+          "ultimaObservacao",
+          "consultadoEm",
+          "janelaRecenteMinutos",
+          "aviso"
+        ]
+      },
+      "NovaObservacaoDto": {
+        "type": "object",
+        "properties": {
+          "condicaoRelatada": {
+            "type": "string",
+            "enum": [
+              "SEM_AGUA_APARENTE",
+              "AGUA_ACUMULADA",
+              "ALAGAMENTO_RELATADO"
+            ],
+            "example": "AGUA_ACUMULADA"
+          },
+          "observadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-11T09:00:00-03:00",
+            "description": "Instante observado com Z ou deslocamento explícito. Não pode estar no futuro."
+          },
+          "dadosSimulados": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        "required": [
+          "condicaoRelatada",
+          "observadoEm",
+          "dadosSimulados"
+        ]
+      },
+      "PaginaObservacoesDto": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 3
+          },
+          "pagina": {
+            "type": "number",
+            "example": 1
+          },
+          "tamanho": {
+            "type": "number",
+            "example": 20
+          },
+          "totalPaginas": {
+            "type": "number",
+            "example": 1
+          },
+          "itens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObservacaoSaidaDto"
+            }
+          }
+        },
+        "required": [
+          "total",
+          "pagina",
+          "tamanho",
+          "totalPaginas",
+          "itens"
+        ]
+      },
+      "SaudeDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "banco": {
+            "type": "string",
+            "example": "PostgreSQL"
+          }
+        },
+        "required": [
+          "status",
+          "banco"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+
+> agua-na-rua-soa@1.0.0 migration:check
+> npm run build && typeorm migration:generate -d dist/infraestrutura/data-source.js src/migrations/VerificaEsquema --check
+
+
+> agua-na-rua-soa@1.0.0 build
+> tsc -p tsconfig.json
+
+No changes in database schema were found
