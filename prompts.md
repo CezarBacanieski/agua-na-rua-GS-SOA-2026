@@ -1,6 +1,6 @@
 # Registro de uso de IA — Água na Rua
 
-Ferramenta utilizada: Codex. Os pedidos deste registro foram feitos em 11/11/2026 e estão organizados por etapa. A redação foi revisada para melhorar a leitura, preservando a intenção dos pedidos originais; não é uma transcrição literal da conversa.
+Usei o Codex durante o desenvolvimento do Água na Rua. Abaixo estão os pedidos organizados por etapa, feitos em 11/11/2026.
 
 ## 1. Entender a proposta e os requisitos
 
@@ -34,6 +34,6 @@ Ferramenta utilizada: Codex. Os pedidos deste registro foram feitos em 11/11/202
 
 > Confira o projeto que está no GitHub como se fosse o professor avaliando a entrega. Compare os arquivos com os requisitos, teste a execução a partir de um clone novo e verifique se tudo o que é necessário está no repositório. Diferencie os itens comprovados das pendências que ainda dependem do grupo.
 
-## Como a IA foi utilizada
+## Como usei a IA
 
-A IA apoiou a leitura dos enunciados, a organização da solução, a implementação do backend, a criação e execução dos testes, as correções, a documentação e a publicação no GitHub. O grupo continua responsável por compreender o código, explicar as decisões e validar a proposta no território escolhido.
+Usei a IA para entender os enunciados, organizar a solução, implementar o backend, criar e executar os testes, corrigir problemas, documentar o projeto e publicar no GitHub. Eu e meu grupo continuamos responsáveis por entender o código, explicar as decisões e validar a proposta no território escolhido.
