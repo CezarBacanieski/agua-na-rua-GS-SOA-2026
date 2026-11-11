@@ -1,8 +1,8 @@
 # Matriz de requisitos e evidências - SOA
 
-Referências: página 27 do [PDF oficial](<../GS CitizenTech - 3ES Fev - FIAP 2026 -  (1).pdf>) e autoavaliação do [HTML do professor](<../Global Solution 2026.2_Arquitetura Orientada a Serviços e Web Services 1.html>). Os critérios e pesos principais são oficiais; os subitens são a leitura da rubrica oferecida pelo guia, sujeita à avaliação do professor.
+Referências: página 27 do PDF oficial da Global Solution 2026.2 e autoavaliação do guia HTML de SOA fornecido pelo professor. Os critérios e pesos principais são oficiais; os subitens são a leitura da rubrica oferecida pelo guia, sujeita à avaliação do professor.
 
-Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados está em [REVISAO-SOA.md](REVISAO-SOA.md). Esta matriz registra implementação e verificação local, sem atribuir uma nota ao grupo. Código e evidências publicados no [GitHub](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026); envio acadêmico no Teams ou Portal do aluno pendente.
+Revisada contra os 22 subitens do HTML em 11/11/2026. Esta matriz registra implementação e verificação local, sem atribuir uma nota ao grupo. Código e evidências publicados no [GitHub](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026); envio acadêmico no Teams ou Portal do aluno pendente.
 
 ## Estruturação do domínio - 3,0
 
@@ -19,7 +19,7 @@ Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados es
 | Item do guia | Peso | Implementação e verificação |
 |---|---:|---|
 | Banco relacional persistente | 0,75 | PostgreSQL 17 no [Compose](compose.yaml), volume para desenvolvimento; teste fecha API e conexão e recupera o registro em novas instâncias |
-| Conexão pelo ambiente, credenciais fora do Git e .env.example | 0,5 | [configuracao.ts](src/infraestrutura/configuracao.ts), [.env.example](.env.example), gerador de senha local e [.gitignore](../.gitignore) |
+| Conexão pelo ambiente, credenciais fora do Git e .env.example | 0,5 | [configuracao.ts](src/infraestrutura/configuracao.ts), [.env.example](.env.example), gerador de senha local e [.gitignore](.gitignore) |
 | CRUD completo persistido | 0,75 | [PontosService](src/aplicacao/pontos.service.ts), [controller](src/api/pontos.controller.ts) e [repositório](src/infraestrutura/repositorio-typeorm.ts); POST/GET/PUT/DELETE verificados por HTTP |
 | Relacionamento com chave estrangeira | 0,5 | `fk_observacao_ponto`, ON DELETE RESTRICT na [primeira migração](src/migrations/1794394800000-CriaPontosEObservacoes.ts); teste também tenta exclusão direta no banco |
 | Consulta além do CRUD | 0,5 | Bairro, paginação, período inclusivo, ordenação, desempate e última observação no [repositório](src/infraestrutura/repositorio-typeorm.ts) |
@@ -55,7 +55,7 @@ Revisada contra os 22 subitens do HTML em 11/11/2026. O relatório de achados es
 
 - Ficha comum no início do README de SOA, nomes e RMs dos quatro integrantes.
 - Dados do seed fictícios e identificados; ausência de coleta de dados pessoais de autores.
-- Uso de IA registrado em [prompts.md](../prompts.md), conforme a página 21 do PDF.
+- Uso de IA registrado em [prompts.md](prompts.md), conforme a página 21 do PDF.
 - Evidências reais descritas em [evidencias/README.md](evidencias/README.md).
 - Backend independente de C#, Mobile, ML e Wokwi para execução e teste.
 - Publicação no GitHub e preenchimento do link da ficha concluídos.

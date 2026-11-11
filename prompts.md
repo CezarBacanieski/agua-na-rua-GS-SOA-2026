@@ -80,3 +80,14 @@ Este arquivo registra o uso de IA nesta pasta a partir de 11/11/2026. Prompts an
 **Conferência prévia:** repositório remoto público e vazio; credenciais e arquivos gerados excluídos; versão do backend já verificada com 95 testes aprovados.
 
 **Resultado da publicação:** primeiro push concluído com sete commits em inglês separados por responsabilidade. Código, migrações, testes, documentação e evidências publicados no repositório público [agua-na-rua-GS-SOA-2026](https://github.com/CezarBacanieski/agua-na-rua-GS-SOA-2026). Os documentos de entrega foram atualizados em um commit adicional para registrar a publicação. Credenciais locais, dependências instaladas e arquivos de build/cobertura não foram versionados. O envio ao Teams/Portal e a validação territorial continuam pendentes.
+
+
+## 11/11/2026 - Isolamento da entrega de SOA
+
+**Pedido do usuário (transcrição):**
+
+> cara vc n subiu coisa demais? esse repostiroio eh pra entregar somente soa, pensei que o iriamos somente subir a pasta soa que temos aqui, e dentro dela todos os requisitos do trabalho de soa, nao eh o mais correto?
+
+**Correção de escopo:** a publicação inicial incluiu a pasta GS inteira. A entrega foi reorganizada para que apenas o projeto de SOA ocupe a raiz do repositório. O Git local passa a pertencer a `GS/soa`; enunciados e materiais gerais permanecem em `GS`, fora desse repositório.
+
+**Organização:** README específico de SOA, ficha comum, integrantes, código, migrações, configuração de exemplo, testes, documentação automática, evidências e este registro de IA. PLANO.md e REVISAO-SOA.md permanecem locais e ignorados pelo Git. Os links e as instruções de execução foram ajustados para o projeto independente. O histórico de commits será preservado, sem force push; os arquivos gerais deixam a versão atual do repositório.

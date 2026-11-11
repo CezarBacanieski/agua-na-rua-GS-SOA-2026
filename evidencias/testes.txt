@@ -1,0 +1,31 @@
+Execução real iniciada em 2026-11-11T14:00:29.126Z
+Comando: npm test
+
+$ docker compose --profile test up -d --wait db-test
+ Container agua-na-rua-soa-db-test-1 Starting 
+ Container agua-na-rua-soa-db-test-1 Started 
+ Container agua-na-rua-soa-db-test-1 Waiting 
+ Container agua-na-rua-soa-db-test-1 Healthy 
+
+$ npm run build
+
+> agua-na-rua-soa@1.0.0 build
+> tsc -p tsconfig.json
+
+
+$ npm run typecheck
+
+> agua-na-rua-soa@1.0.0 typecheck
+> tsc -p tsconfig.test.json --noEmit
+
+
+$ /Users/cezarbacanieski/.nvm/versions/node/v22.23.4/bin/node node_modules/jest/bin/jest.js --runInBand --verbose --json --outputFile=evidencias/testes.json
+Test Suites: 4 passed, 4 total
+Tests:       95 passed, 95 total
+Snapshots:   0 total
+Time:        2.204 s, estimated 3 s
+Ran all test suites.
+Test results written to: evidencias/testes.json
+
+Resultado: todos os comandos concluídos com sucesso.
+Finalizado em 2026-11-11T14:00:36.106Z

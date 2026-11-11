@@ -1,5 +1,5 @@
 {
-  "capturadoEm": "2026-11-11T13:33:30.391Z",
+  "capturadoEm": "2026-11-11T14:02:04.836Z",
   "respostas": [
     {
       "metodo": "GET",
@@ -55,7 +55,7 @@
         "pontoId": "11111111-1111-4111-8111-111111111111",
         "atualizacao": "SEM_INFORMACAO",
         "ultimaObservacao": null,
-        "consultadoEm": "2026-11-11T13:33:30.376Z",
+        "consultadoEm": "2026-11-11T14:02:04.829Z",
         "janelaRecenteMinutos": 30,
         "aviso": "Relatos não comprovam segurança para passagem. Ausência de informação não indica rua livre."
       }
@@ -76,7 +76,7 @@
           "origem": "RELATO_MANUAL",
           "dadosSimulados": true
         },
-        "consultadoEm": "2026-11-11T13:33:30.379Z",
+        "consultadoEm": "2026-11-11T14:02:04.831Z",
         "janelaRecenteMinutos": 30,
         "aviso": "Relatos não comprovam segurança para passagem. Ausência de informação não indica rua livre."
       }

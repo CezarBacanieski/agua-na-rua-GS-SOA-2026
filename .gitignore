@@ -8,3 +8,7 @@
 **/*.log
 **/test-results/
 **/playwright-report/
+
+# Notas internas mantidas apenas no workspace local.
+/PLANO.md
+/REVISAO-SOA.md
