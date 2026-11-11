@@ -1,0 +1,35 @@
+name: agua-na-rua-soa
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-agua_na_rua}
+      POSTGRES_USER: ${DB_USER:-agua_app}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Execute npm run setup}
+    ports:
+      - "127.0.0.1:${DB_PORT:-55432}:5432"
+    volumes:
+      - dados-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  db-test:
+    image: postgres:17-alpine
+    profiles: [test]
+    environment:
+      POSTGRES_DB: agua_na_rua_test
+      POSTGRES_USER: ${DB_USER:-agua_app}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Execute npm run setup}
+    ports:
+      - "127.0.0.1:${TEST_DB_PORT:-55433}:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d agua_na_rua_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  dados-postgres:
