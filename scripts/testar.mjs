@@ -21,9 +21,9 @@ function executar(comando, args, env = process.env) {
 try {
   if (!process.env.DB_PASSWORD) throw new Error('Execute npm run setup antes dos testes.');
   executar('docker', ['compose', '--profile', 'test', 'up', '-d', '--wait', 'db-test']);
-  const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-  executar(npm, ['run', 'build']);
-  executar(npm, ['run', 'typecheck']);
+  // Executar o compilador JS com o Node evita depender de npm.cmd e de shell no Windows.
+  executar(process.execPath, ['node_modules/typescript/bin/tsc', '-p', 'tsconfig.json']);
+  executar(process.execPath, ['node_modules/typescript/bin/tsc', '-p', 'tsconfig.test.json', '--noEmit']);
   const env = {
     ...process.env, NODE_ENV: 'test', SOA_TEST_DATABASE: '1',
     DB_HOST: '127.0.0.1', DB_PORT: process.env.TEST_DB_PORT ?? '55433',

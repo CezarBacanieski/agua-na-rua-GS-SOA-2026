@@ -91,3 +91,14 @@ Este arquivo registra o uso de IA nesta pasta a partir de 11/11/2026. Prompts an
 **Correção de escopo:** a publicação inicial incluiu a pasta GS inteira. A entrega foi reorganizada para que apenas o projeto de SOA ocupe a raiz do repositório. O Git local passa a pertencer a `GS/soa`; enunciados e materiais gerais permanecem em `GS`, fora desse repositório.
 
 **Organização:** README específico de SOA, ficha comum, integrantes, código, migrações, configuração de exemplo, testes, documentação automática, evidências e este registro de IA. PLANO.md e REVISAO-SOA.md permanecem locais e ignorados pelo Git. Os links e as instruções de execução foram ajustados para o projeto independente. O histórico de commits será preservado, sem force push; os arquivos gerais deixam a versão atual do repositório.
+
+
+## 11/11/2026 - Auditoria da entrega publicada de SOA
+
+**Pedido do usuário (transcrição):**
+
+> verifique se 100% da netrega de soa etsa correamente no repositorio, se vamso tirar nota maxima cumpridno todos os requisitos, atue como um engenehiro de softwrae seniro analisando cada requisito de entrgea vs oq estamso entrgando no repositorio
+
+**Apoio da IA:** comparação da versão pública com os cinco critérios do PDF e os 22 subitens do guia HTML; clone novo por HTTPS, instalação pelo lockfile, migrações, testes, persistência entre processos, contrato e execução pelo Swagger. O clone inicial do commit 50b6bfa passou em 95 testes. Foi identificado e corrigido um ponto de portabilidade no executor: o compilador agora é iniciado com Node, evitando chamada direta a npm.cmd no Windows. A limitação foi conferida na documentação oficial de child_process do Node. A validação efetivamente executada usa macOS e PostgreSQL em Linux/Docker; não se afirma execução em Windows.
+
+**Escopo da avaliação:** nenhum item técnico ausente foi identificado no recorte fornecido. Nota é atribuída pelo professor; envio do link no Teams/Portal, pesquisa territorial e compreensão do código pelos integrantes não são comprovados pelos testes. O relatório detalhado permanece como nota local em REVISAO-SOA.md.
