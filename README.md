@@ -192,7 +192,7 @@ A auditoria registrada de dependências de produção teve zero vulnerabilidades
 
 ## Avaliação e entrega
 
-A [matriz de requisitos](MATRIZ-REQUISITOS.md) relaciona cada item da autoavaliação do HTML à implementação e às evidências. Os pesos principais seguem a página 27 do PDF oficial. A avaliação final é do professor.
+A entrega reúne o código completo, a descrição da solução, as instruções de execução, os integrantes, a documentação dos endpoints e as evidências da aplicação. Os critérios do enunciado são domínio, banco de dados, migrações, documentação automática e testes.
 
 Integrantes:
 
